@@ -1,0 +1,241 @@
+/* Project Section */
+.project-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* Filters Styling */
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.filters select {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  padding: 5px 10px;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filters select:hover {
+  background-color: #333;
+}
+
+/* Carousel Container */
+.carousel-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 80%;
+  margin-top: 10px;
+}
+
+/* Project Cards */
+.project-cards {
+  display: flex;
+  gap: 20px;
+  overflow: hidden; /* Hide horizontal scrollbar */
+  flex: 1;
+}
+
+.project-card {
+  flex: 1 0 calc((100% / 4) - 20px); /* 4 cards per row, subtract gap */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+  background-color: black;
+  border: 2px solid white;
+  padding: 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.project-card:hover {
+  background-color: #333;
+}
+
+/* Arrows Styling */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.left-arrow {
+  left: -40px;
+}
+
+.right-arrow {
+  right: -40px;
+}
+
+.arrow:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+/* Lock the body scroll when modal is open */
+.modal-open {
+  overflow: hidden; /* Prevent background scrolling */
+}
+
+/* Modal Styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align content at the top */
+  z-index: 1000;
+  padding: 20px; /* Add padding to ensure space around modal content */
+  overflow-y: auto; /* Allow scrolling inside the modal */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal-content-wrapper {
+  background-color: black;
+  padding: 20px;
+  border: 1px solid white;
+  text-align: center;
+  max-width: 500px;
+  width: 80%;
+  position: relative;
+  margin: auto; /* Center the modal content */
+}
+
+.modal-content {
+  background-color: black;
+  padding: 20px;
+  border: 1px solid white;
+  text-align: center;
+  max-width: 500px;
+  width: 80%;
+  position: relative;
+}
+
+
+/* Modal Image */
+.modal-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Modal Buttons */
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-button {
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.modal-button:hover {
+  background-color: #333;
+}
+
+/* Close Button */
+.close-button {
+  position: absolute;
+  color: white;
+  align-content: center;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Slide Hint Styling */
+.slide-hint {
+  display: none; /* Default hidden */
+  margin-top: 10px;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1000px) {
+  .project-card {
+    flex: 1 0 calc((100% / 3) - 20px); /* 3 cards per row */
+    scroll-behavior: smooth; /* Smooth scrolling behavior */
+    -webkit-overflow-scrolling: touch; /* Improve scrolling on iOS */
+  }
+}
+
+@media (max-width: 700px) {
+  .project-cards {
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; /* Smooth scrolling behavior */
+    -webkit-overflow-scrolling: touch; /* Improve scrolling on iOS */
+  }
+  .project-card {
+    flex: 1 0 calc((100% / 2) - 20px); /* 2 cards per row */
+    scroll-snap-align: center;
+  }
+  .slide-hint {
+    display: block; /* Visible only on mobile */
+  }
+  .modal-content-wrapper {
+    width: 90%; /* Increase width slightly for smaller screens */
+    margin-right: 14px;
+    margin-bottom: 15px;
+  }
+
+  .modal {
+    padding: 10px; /* Ensure spacing between modal and edges */
+  }
+
+  .close-button {
+    top: 0px;
+    right: 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  .project-cards {
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; /* Smooth scrolling behavior */
+    -webkit-overflow-scrolling: touch; /* Improve scrolling on iOS */
+  }
+  .project-card {
+    flex: 1 0 100%; /* 1 card per row on small screens */
+    scroll-snap-align: center;
+  }
+
+  .arrow {
+    display: none; /* Hide arrows on small screens */
+  }
+}

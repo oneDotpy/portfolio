@@ -1,0 +1,92 @@
+/* Home Section */
+.home {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-left: 100px;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Home Content */
+.home-content {
+  max-width: 1500px;
+  width: 100%;
+  margin: 0;
+  font-size: larger;
+  text-align: left; /* Align text to the left */
+}
+
+/* Typewriter Effect */
+.typewriter {
+  font-size: 2rem; /* Default font size for large screens */
+  white-space: normal; /* Allow text to wrap */
+  word-break: break-word; /* Ensure long text breaks correctly */
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* Blinking Cursor */
+.cursor {
+  display: inline-block;
+  width: 0.1em;
+  background-color: white;
+  margin-left: 2px;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+/* Highlighted Name */
+.highlight {
+  color: lightblue;
+}
+
+/* Resume Button */
+.resume-btn {
+  font-family: 'SometypeMono', monospace;
+  font-size: 1.1rem;
+  height: 40px;
+  width: 120px;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.resume-btn:hover {
+  background-color: #333;
+}
+
+/* Blinking Cursor Animation */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .home {
+    margin-left: 0;
+    overflow: hidden;
+  }
+  .typewriter {
+    font-size: 1.5rem; /* Smaller typewriter font on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    margin-left: 0;
+    overflow: hidden;
+  }
+  .typewriter {
+    font-size: 0.9rem; /* Even smaller font on phones */
+  }
+
+  .resume-btn {
+    width: 100%; /* Full width button on mobile */
+  }
+}

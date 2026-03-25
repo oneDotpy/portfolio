@@ -1,0 +1,48 @@
+/* Navbar Container */
+.navbar {
+  position: fixed; /* Fix the navbar at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  gap: 20px; /* Spacing between links */
+  padding: 15px 20px; /* Adjust padding for better fit */
+  background-color: black; /* Background color */
+  z-index: 100; /* Keep on top of other content */
+  box-sizing: border-box;
+}
+
+/* Navbar Links */
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+  transition: all 0.3s ease; /* Smooth transition for hover/active states */
+}
+
+/* Active Link Styles */
+.navbar a.active {
+  font-weight: 700; /* Bold for active section */
+  text-decoration: underline;
+}
+
+/* Navbar Hover Effect */
+.navbar a:hover {
+  color: lightblue; /* Change color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack links vertically on small screens */
+    gap: 10px; /* Reduce spacing between links */
+    padding: 10px; /* Adjust padding for mobile */
+  }
+
+  .navbar a {
+    font-size: 16px; /* Slightly smaller font on mobile */
+  }
+}

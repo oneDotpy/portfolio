@@ -1,0 +1,35 @@
+/* src/index.css */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: black;
+  color: white;
+}
+
+h1 span {
+  color: #3b82f6; /* Tailwind blue for effect */
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Import the font from src/assets/fonts */
+@font-face {
+  font-family: 'SometypeMono';
+  src: url('./assets/fonts/SometypeMono-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* Variable weight range */
+  font-display: swap;
+}
+
+body {
+  font-family: 'SometypeMono', monospace;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+}

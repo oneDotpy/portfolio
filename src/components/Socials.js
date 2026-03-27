@@ -2,10 +2,9 @@
 import React from 'react'
 import './Socials.css'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
-
-const gitLogo = '/icons/github.png'
-const linkedinLogo = '/icons/linkedin.png'
-const emailLogo = '/icons/email.png'
+import gitLogo from '../../public/icons/github.png'
+import linkedinLogo from '../../public/icons/linkedin.png'
+import emailLogo from '../../public/icons/email.png'
 
 const Socials = () => {
   const { ref, isVisible } = useScrollAnimation()

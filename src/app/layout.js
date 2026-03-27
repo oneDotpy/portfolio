@@ -3,6 +3,9 @@ import './globals.css'
 export const metadata = {
   title: 'Ahnaf Keenan Ardhito',
   description: 'Portfolio of Ahnaf Keenan Ardhito — Computer Science Specialist at the University of Toronto',
+  icons: {
+    icon: '/portfolio/favicon.ico',
+  },
 }
 
 export default function RootLayout({ children }) {

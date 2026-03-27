@@ -1,59 +1,56 @@
-// src/components/Home.js
-import React, { useState, useEffect, useRef } from 'react';
-import './Home.css'; // Import Home CSS
+'use client'
+import React, { useState, useEffect, useRef } from 'react'
+import './Home.css'
 
 const Home = () => {
-  const [text, setText] = useState(''); // State for typed text
-  const [index, setIndex] = useState(0); // Track the current character index
-  const [isTyping, setIsTyping] = useState(true); // Track if typing is ongoing
+  const [text, setText] = useState('')
+  const [index, setIndex] = useState(0)
+  const [isDone, setIsDone] = useState(false)
 
-  const introduction = {
-    fullText: "Hello, my name is ",
-    name: "Ahnaf Keenan Ardhito", // Blue-colored name
-    description: "I’m a second-year Computer Science student at the University of Toronto.",
-    languages: ['[.py', '.java', '.html', '.css', '.js', '.c', '.cpp]'],
-  };
+  const fullText = "Hello, my name is "
+  const name = "Ahnaf Keenan Ardhito"
+  const description = "I'm a third-year Computer Science Specialist with a Minor in Statistics at the University of Toronto."
+  const combinedText = fullText + name
 
-  const typingSpeed = 100; // Typing speed in ms
-  const pauseBetweenLoops = 2000; // Pause before resetting the typing effect
-
-  const combinedText = introduction.fullText + introduction.name; // Full text to type
-
-  // Ref to store the timeout ID to ensure proper cleanup
-  const timeoutRef = useRef(null);
+  const typingSpeed = 100
+  const timeoutRef = useRef(null)
 
   useEffect(() => {
-    if (isTyping && index < combinedText.length) {
-      // Type the next character
+    if (!isDone && index < combinedText.length) {
       timeoutRef.current = setTimeout(() => {
-        setText((prev) => prev + combinedText.charAt(index));
-        setIndex(index + 1); // Increment the index for the next character
-      }, typingSpeed);
+        setText((prev) => prev + combinedText.charAt(index))
+        setIndex(index + 1)
+      }, typingSpeed)
     } else if (index >= combinedText.length) {
-      // Finished typing, wait and then reset the typing effect
-      setIsTyping(false);
-      timeoutRef.current = setTimeout(() => {
-        setText(''); // Clear the text
-        setIndex(0); // Reset the index
-        setIsTyping(true); // Start typing again
-      }, pauseBetweenLoops);
+      setIsDone(true)
     }
-
-    // Cleanup timeout on component unmount
-    return () => clearTimeout(timeoutRef.current);
-  }, [index, isTyping, combinedText]);
+    return () => clearTimeout(timeoutRef.current)
+  }, [index, isDone, combinedText])
 
   const renderTypedText = () => {
-    const regularText = text.slice(0, introduction.fullText.length); // Regular part
-    const coloredText = text.slice(introduction.fullText.length); // Name part
-
+    const regularText = text.slice(0, fullText.length)
+    const coloredText = text.slice(fullText.length)
     return (
       <>
         {regularText}
         <span className="highlight">{coloredText}</span>
       </>
-    );
-  };
+    )
+  }
+
+  const langIcons = [
+    { cls: 'devicon-python-plain colored', label: 'Python' },
+    { cls: 'devicon-java-plain colored', label: 'Java' },
+    { cls: 'devicon-html5-plain colored', label: 'HTML5' },
+    { cls: 'devicon-css3-plain colored', label: 'CSS3' },
+    { cls: 'devicon-javascript-plain colored', label: 'JavaScript' },
+    { cls: 'devicon-typescript-plain colored', label: 'TypeScript' },
+    { cls: 'devicon-dart-plain colored', label: 'Dart' },
+    { cls: 'devicon-kotlin-plain colored', label: 'Kotlin' },
+    { cls: 'devicon-c-plain colored', label: 'C' },
+    { cls: 'devicon-cplusplus-plain colored', label: 'C++' },
+    { cls: 'devicon-r-plain colored', label: 'R' },
+  ]
 
   return (
     <div className="home" id="home">
@@ -62,18 +59,21 @@ const Home = () => {
           {renderTypedText()}
           <span className="cursor">|</span>
         </h1>
-        <p>{introduction.description}</p>
-        <p>Languages I have used: {introduction.languages.join(', ')}</p>
+        <p className="home-desc">{description}</p>
+        <div className="lang-icons">
+          {langIcons.map(({ cls, label }) => (
+            <i key={label} className={cls} title={label} />
+          ))}
+        </div>
         <button
-        className="resume-btn"
-        onClick={() => window.open("https://drive.google.com/file/d/1GjmrTvBRqP_ni6OcTj0bspdtRMWmEOjZ/view?usp=sharing", "_blank")}
+          className="resume-btn"
+          onClick={() => window.open("https://drive.google.com/file/d/1OaCPCswxMdYvJoXlAtLxy_n2DLMdz2Jx/view?usp=sharing", "_blank")}
         >
-  Resume
-</button>
-
+          Resume
+        </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

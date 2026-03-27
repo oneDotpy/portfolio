@@ -1,0 +1,82 @@
+/* [project]/src/components/Socials.css [app-client] (css) */
+.socials-section {
+  background-color: var(--bg);
+  height: 100vh;
+  color: var(--text);
+  text-align: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  display: flex;
+}
+
+.socials-content h2 {
+  margin-bottom: 36px;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.socials-icons {
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  display: flex;
+  position: relative;
+}
+
+.socials-icons:before {
+  content: "";
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(circle, #0003 0%, #0000 70%);
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (prefers-color-scheme: light) {
+  .socials-icons:before {
+    background: radial-gradient(circle, #0006 0%, #0000 70%);
+  }
+}
+
+.socials-icons img {
+  cursor: pointer;
+  opacity: .85;
+  width: 80px;
+  height: 80px;
+  transition: transform .3s, opacity .3s;
+}
+
+.socials-icons img:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+@media (max-width: 768px) {
+  .socials-content h2 {
+    margin-bottom: 24px;
+    font-size: 1.4rem;
+  }
+
+  .socials-icons {
+    gap: 30px;
+  }
+
+  .socials-icons:before {
+    width: 350px;
+    height: 350px;
+  }
+
+  .socials-icons img {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/*# sourceMappingURL=src_components_Socials_css_0w3-wzy._.single.css.map*/

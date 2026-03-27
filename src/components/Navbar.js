@@ -1,77 +1,86 @@
-// src/components/Navbar.js
-import React, { useState, useEffect } from 'react';
-import './Navbar.css'; // Import CSS
+'use client'
+import React, { useState, useEffect } from 'react'
+import ThemeToggle from './ThemeToggle'
+import './Navbar.css'
+
+const navLinks = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'project', label: 'Projects' },
+  { id: 'socials', label: 'Connect' },
+]
 
 const Navbar = () => {
-  const [activeSection, setActiveSection] = useState('home');
-
-  const handleScroll = () => {
-    const sections = ['home', 'project', 'socials'];
-    const scrollPosition = window.scrollY;
-
-    sections.forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) {
-        const offsetTop = section.offsetTop;
-        const offsetBottom = offsetTop + section.offsetHeight;
-
-        if (scrollPosition >= offsetTop - 100 && scrollPosition < offsetBottom) {
-          setActiveSection(id);
-        }
-      }
-    });
-  };
-
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      const offsetTop = section.offsetTop;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth', // Smooth scrolling
-      });
-    }
-  };
+  const [activeSection, setActiveSection] = useState('home')
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      navLinks.forEach(({ id }) => {
+        const section = document.getElementById(id)
+        if (section) {
+          const { offsetTop, offsetHeight } = section
+          if (scrollPosition >= offsetTop - 100 && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(id)
+          }
+        }
+      })
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id)
+    if (section) window.scrollTo({ top: section.offsetTop, behavior: 'smooth' })
+    setMenuOpen(false)
+  }
 
   return (
-    <nav className="navbar">
-      <a
-        href="#home"
-        className={activeSection === 'home' ? 'active' : ''}
-        onClick={(e) => {
-          e.preventDefault(); // Prevent default anchor behavior
-          scrollToSection('home');
-        }}
-      >
-        Home
-      </a>
-      <a
-        href="#project"
-        className={activeSection === 'project' ? 'active' : ''}
-        onClick={(e) => {
-          e.preventDefault();
-          scrollToSection('project');
-        }}
-      >
-        Projects
-      </a>
-      <a
-        href="#socials"
-        className={activeSection === 'socials' ? 'active' : ''}
-        onClick={(e) => {
-          e.preventDefault();
-          scrollToSection('socials');
-        }}
-      >
-        Connect
-      </a>
-    </nav>
-  );
-};
+    <>
+      <nav className="navbar">
+        <div className="navbar-links">
+          {navLinks.map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className={activeSection === id ? 'active' : ''}
+              onClick={(e) => { e.preventDefault(); scrollToSection(id) }}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+        <div className="navbar-right">
+          <ThemeToggle />
+          <button
+            className="hamburger"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? '✕' : '☰'}
+          </button>
+        </div>
+      </nav>
 
-export default Navbar;
+      {menuOpen && (
+        <div className="mobile-menu">
+          {navLinks.map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className={activeSection === id ? 'active' : ''}
+              onClick={(e) => { e.preventDefault(); scrollToSection(id) }}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      )}
+    </>
+  )
+}
+
+export default Navbar

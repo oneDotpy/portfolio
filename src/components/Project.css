@@ -1,14 +1,25 @@
-/* Project Section */
 .project-section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 80px 40px 40px;
+  box-sizing: border-box;
 }
 
-/* Filters Styling */
+.project-header {
+  width: 80%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.project-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
 .filters {
   display: flex;
   justify-content: center;
@@ -18,21 +29,21 @@
 }
 
 .filters select {
-  background-color: black;
-  color: white;
-  border: 1px solid white;
+  background-color: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border-solid);
   padding: 5px 10px;
-  font-size: 16px;
+  font-size: 15px;
+  font-family: inherit;
   outline: none;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .filters select:hover {
-  background-color: #333;
+  background-color: var(--hover);
 }
 
-/* Carousel Container */
 .carousel-container {
   display: flex;
   align-items: center;
@@ -41,30 +52,51 @@
   margin-top: 10px;
 }
 
-/* Project Cards */
 .project-cards {
   display: flex;
   gap: 20px;
-  overflow: hidden; /* Hide horizontal scrollbar */
+  overflow: hidden;
   flex: 1;
 }
 
 .project-card {
-  flex: 1 0 calc((100% / 4) - 20px); /* 4 cards per row, subtract gap */
-  box-sizing: border-box; /* Include padding and border in width calculation */
-  background-color: black;
-  border: 2px solid white;
+  flex: 1 0 calc((100% / 4) - 20px);
+  box-sizing: border-box;
+  background-color: var(--surface);
+  border: 1px solid var(--border-solid);
   padding: 18px;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.2s, border-color 0.2s;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 .project-card:hover {
-  background-color: #333;
+  background-color: var(--hover);
+  border-color: var(--highlight);
 }
 
-/* Arrows Styling */
+.card-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  border: 1px solid var(--highlight);
+  color: var(--highlight);
+  margin: 4px 0 6px;
+}
+
+.card-date {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin: 4px 0;
+}
+
+.card-tech {
+  font-size: 0.82rem;
+  color: var(--text);
+  opacity: 0.8;
+  margin: 4px 0;
+}
+
 .arrow {
   position: absolute;
   top: 50%;
@@ -72,67 +104,49 @@
   background: none;
   border: none;
   font-size: 24px;
-  color: white;
+  color: var(--text);
   cursor: pointer;
 }
 
-.left-arrow {
-  left: -40px;
-}
-
-.right-arrow {
-  right: -40px;
-}
+.left-arrow { left: -40px; }
+.right-arrow { right: -40px; }
 
 .arrow:hover {
   transform: translateY(-50%) scale(1.2);
 }
-/* Lock the body scroll when modal is open */
+
 .modal-open {
-  overflow: hidden; /* Prevent background scrolling */
+  overflow: hidden;
 }
 
-/* Modal Styling */
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--modal-overlay);
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Align content at the top */
+  align-items: flex-start;
   z-index: 1000;
-  padding: 20px; /* Add padding to ensure space around modal content */
-  overflow-y: auto; /* Allow scrolling inside the modal */
+  padding: 20px;
+  overflow-y: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
 
 .modal-content-wrapper {
-  background-color: black;
-  padding: 20px;
-  border: 1px solid white;
+  background-color: var(--surface);
+  padding: 24px;
+  border: 1px solid var(--border-solid);
   text-align: center;
   max-width: 500px;
   width: 80%;
   position: relative;
-  margin: auto; /* Center the modal content */
+  margin: auto;
 }
 
-.modal-content {
-  background-color: black;
-  padding: 20px;
-  border: 1px solid white;
-  text-align: center;
-  max-width: 500px;
-  width: 80%;
-  position: relative;
-}
-
-
-/* Modal Image */
 .modal-image {
   width: 100%;
   max-width: 400px;
@@ -140,56 +154,70 @@
   margin-bottom: 20px;
 }
 
-/* Modal Buttons */
+.modal-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border: 1px solid var(--highlight);
+  color: var(--highlight);
+  margin-bottom: 12px;
+}
+
+.modal-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 4px 0;
+}
+
 .modal-buttons {
   display: flex;
   gap: 10px;
   margin-top: 20px;
+  justify-content: center;
 }
 
 .modal-button {
+  display: inline-block;
   padding: 10px 20px;
-  background-color: black;
-  color: white;
-  border: 2px solid white;
+  background-color: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border-solid);
+  font-family: inherit;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  text-decoration: none;
+  transition: background-color 0.3s;
 }
 
 .modal-button:hover {
-  background-color: #333;
+  background-color: var(--hover);
+  text-decoration: none;
 }
 
-/* Close Button */
 .close-button {
   position: absolute;
-  color: white;
-  align-content: center;
+  color: var(--text);
   top: 10px;
   right: 10px;
   font-size: 24px;
   background: none;
   border: none;
   cursor: pointer;
+  line-height: 1;
 }
 
-/* Slide Hint Styling */
 .slide-hint {
-  display: none; /* Default hidden */
+  display: none;
   margin-top: 10px;
-  font-size: 14px;
-  color: white;
+  font-size: 13px;
+  color: var(--muted);
   text-align: center;
   font-style: italic;
-  opacity: 0.7;
 }
 
-/* Responsive Media Queries */
 @media (max-width: 1000px) {
   .project-card {
-    flex: 1 0 calc((100% / 3) - 20px); /* 3 cards per row */
-    scroll-behavior: smooth; /* Smooth scrolling behavior */
-    -webkit-overflow-scrolling: touch; /* Improve scrolling on iOS */
+    flex: 1 0 calc((100% / 3) - 20px);
   }
 }
 
@@ -197,29 +225,35 @@
   .project-cards {
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth; /* Smooth scrolling behavior */
-    -webkit-overflow-scrolling: touch; /* Improve scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
   }
   .project-card {
-    flex: 1 0 calc((100% / 2) - 20px); /* 2 cards per row */
+    flex: 1 0 calc((100% / 2) - 20px);
     scroll-snap-align: center;
   }
   .slide-hint {
-    display: block; /* Visible only on mobile */
+    display: block;
   }
   .modal-content-wrapper {
-    width: 90%; /* Increase width slightly for smaller screens */
+    width: 90%;
     margin-right: 14px;
     margin-bottom: 15px;
   }
-
   .modal {
-    padding: 10px; /* Ensure spacing between modal and edges */
+    padding: 10px;
   }
-
   .close-button {
-    top: 0px;
-    right: 0px;
+    top: 6px;
+    right: 6px;
+  }
+  .project-section {
+    padding: 80px 24px 40px;
+  }
+  .project-header {
+    width: 100%;
+  }
+  .carousel-container {
+    width: 100%;
   }
 }
 
@@ -227,15 +261,13 @@
   .project-cards {
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth; /* Smooth scrolling behavior */
-    -webkit-overflow-scrolling: touch; /* Improve scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
   }
   .project-card {
-    flex: 1 0 100%; /* 1 card per row on small screens */
+    flex: 1 0 100%;
     scroll-snap-align: center;
   }
-
   .arrow {
-    display: none; /* Hide arrows on small screens */
+    display: none;
   }
 }

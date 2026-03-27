@@ -1,0 +1,3 @@
+module.exports=[29735,a=>{"use strict";var b=a.i(7997);a.s(["default",0,function({children:a}){return(0,b.jsxs)("html",{lang:"en",children:[(0,b.jsx)("head",{children:(0,b.jsx)("link",{rel:"stylesheet",href:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"})}),(0,b.jsx)("body",{children:a})]})},"metadata",0,{title:"Ahnaf Keenan Ardhito",description:"Portfolio of Ahnaf Keenan Ardhito — Computer Science Specialist at the University of Toronto"}])},81967,a=>{a.n(a.i(29735))}];
+
+//# sourceMappingURL=src_app_layout_0aa2s2c.js.map

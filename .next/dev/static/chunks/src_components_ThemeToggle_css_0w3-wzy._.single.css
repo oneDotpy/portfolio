@@ -1,0 +1,23 @@
+/* [project]/src/components/ThemeToggle.css [app-client] (css) */
+.theme-toggle {
+  border: 1px solid var(--border-solid);
+  color: var(--text);
+  cursor: pointer;
+  opacity: .75;
+  background: none;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  transition: background-color .2s;
+  display: flex;
+}
+
+.theme-toggle:hover {
+  background-color: var(--hover);
+  opacity: 1;
+}
+
+/*# sourceMappingURL=src_components_ThemeToggle_css_0w3-wzy._.single.css.map*/

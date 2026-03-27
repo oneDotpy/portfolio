@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/portfolio',
+  basePath: process.env.DEPLOY_TARGET === 'github' ? '/portfolio' : '',
   images: {
     unoptimized: true,
   },

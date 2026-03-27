@@ -1,0 +1,66 @@
+.about-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px 40px;
+  box-sizing: border-box;
+}
+
+.about-content {
+  max-width: 700px;
+  width: 100%;
+}
+
+.about-content h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.about-bio {
+  font-size: 1rem;
+  line-height: 1.9;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.about-scholarship {
+  font-size: 1rem;
+  line-height: 1.9;
+  margin-bottom: 28px;
+  color: var(--muted);
+}
+
+.about-highlight {
+  color: var(--highlight);
+  font-weight: 600;
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.about-tag {
+  border: 1px solid var(--border-solid);
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  color: var(--text);
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+
+.about-tag:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 80px 24px 40px;
+  }
+  .about-content h2 {
+    font-size: 1.4rem;
+  }
+}

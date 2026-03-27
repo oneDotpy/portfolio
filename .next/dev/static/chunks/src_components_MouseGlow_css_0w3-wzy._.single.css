@@ -1,0 +1,13 @@
+/* [project]/src/components/MouseGlow.css [app-client] (css) */
+.mouse-glow {
+  pointer-events: none;
+  z-index: 0;
+  position: fixed;
+  inset: 0;
+}
+
+[data-theme="light"] .mouse-glow {
+  display: none;
+}
+
+/*# sourceMappingURL=src_components_MouseGlow_css_0w3-wzy._.single.css.map*/

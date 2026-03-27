@@ -1,0 +1,432 @@
+/* [project]/src/components/Navbar.css [app-client] (css) */
+.navbar {
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100;
+  box-sizing: border-box;
+  background-color: #000000d9;
+  border-bottom: 1px solid #ffffff1a;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 15px 20px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.navbar a {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+  text-decoration: none;
+  transition: all .3s;
+}
+
+.navbar a.active {
+  color: #add8e6;
+  font-weight: 700;
+}
+
+.navbar a:hover {
+  color: #add8e6;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    gap: 16px;
+    padding: 12px 16px;
+  }
+
+  .navbar a {
+    font-size: 14px;
+  }
+}
+
+/* [project]/src/components/Home.css [app-client] (css) */
+.home {
+  box-sizing: border-box;
+  justify-content: left;
+  align-items: center;
+  height: 100vh;
+  margin-left: 100px;
+  padding: 20px;
+  display: flex;
+  overflow: hidden;
+}
+
+.home-content {
+  text-align: left;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0;
+  font-size: larger;
+}
+
+.typewriter {
+  white-space: normal;
+  word-break: break-word;
+  font-size: 2rem;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.cursor {
+  background-color: #fff;
+  width: .1em;
+  margin-left: 2px;
+  animation: .7s step-end infinite blink;
+  display: inline-block;
+}
+
+.highlight {
+  color: #add8e6;
+}
+
+.resume-btn {
+  color: #fff;
+  cursor: pointer;
+  background-color: #000;
+  border: 1px solid #fff;
+  width: 120px;
+  height: 40px;
+  margin-top: 20px;
+  font-family: SometypeMono, monospace;
+  font-size: 1.1rem;
+  transition: background-color .3s;
+}
+
+.resume-btn:hover {
+  background-color: #333;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .home {
+    margin-left: 0;
+    overflow: hidden;
+  }
+
+  .typewriter {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    margin-left: 0;
+    overflow: hidden;
+  }
+
+  .typewriter {
+    font-size: .9rem;
+  }
+
+  .resume-btn {
+    width: 100%;
+  }
+}
+
+/* [project]/src/components/Project.css [app-client] (css) */
+.project-section {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+}
+
+.filters {
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.filters select {
+  color: #fff;
+  cursor: pointer;
+  background-color: #000;
+  border: 1px solid #fff;
+  outline: none;
+  padding: 5px 10px;
+  font-family: inherit;
+  font-size: 16px;
+  transition: background-color .3s;
+}
+
+.filters select:hover {
+  background-color: #333;
+}
+
+.carousel-container {
+  align-items: center;
+  width: 80%;
+  margin-top: 10px;
+  display: flex;
+  position: relative;
+}
+
+.project-cards {
+  flex: 1;
+  gap: 20px;
+  display: flex;
+  overflow: hidden;
+}
+
+.project-card {
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  background-color: #000;
+  border: 2px solid #fff;
+  flex: 1 0 calc(25% - 20px);
+  padding: 18px;
+  transition: transform .2s, border-color .2s;
+}
+
+.project-card:hover {
+  background-color: #333;
+}
+
+.card-date {
+  opacity: .6;
+  margin: 4px 0;
+  font-size: .85rem;
+}
+
+.card-tech {
+  opacity: .85;
+  margin: 4px 0;
+  font-size: .85rem;
+}
+
+.arrow {
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.left-arrow {
+  left: -40px;
+}
+
+.right-arrow {
+  right: -40px;
+}
+
+.arrow:hover {
+  transform: translateY(-50%)scale(1.2);
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  z-index: 1000;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  background-color: #000c;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.modal-content-wrapper {
+  text-align: center;
+  background-color: #000;
+  border: 1px solid #fff;
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+}
+
+.modal-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.modal-buttons {
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.modal-button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #000;
+  border: 2px solid #fff;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color .3s;
+  display: inline-block;
+}
+
+.modal-button:hover {
+  background-color: #333;
+  text-decoration: none;
+}
+
+.close-button {
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: none;
+  align-content: center;
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.slide-hint {
+  color: #fff;
+  text-align: center;
+  opacity: .7;
+  margin-top: 10px;
+  font-size: 14px;
+  font-style: italic;
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .project-card {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    flex: 1 0 calc(33.3333% - 20px);
+  }
+}
+
+@media (max-width: 700px) {
+  .project-cards {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+  }
+
+  .project-card {
+    scroll-snap-align: center;
+    flex: 1 0 calc(50% - 20px);
+  }
+
+  .slide-hint {
+    display: block;
+  }
+
+  .modal-content-wrapper {
+    width: 90%;
+    margin-bottom: 15px;
+    margin-right: 14px;
+  }
+
+  .modal {
+    padding: 10px;
+  }
+
+  .close-button {
+    top: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .project-cards {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+  }
+
+  .project-card {
+    scroll-snap-align: center;
+    flex: 1 0 100%;
+  }
+
+  .arrow {
+    display: none;
+  }
+}
+
+/* [project]/src/components/Socials.css [app-client] (css) */
+.socials-section {
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #000;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+}
+
+.socials-section h2 {
+  margin-bottom: 30px;
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.socials-icons {
+  gap: 50px;
+  display: flex;
+}
+
+.socials-icons img {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  transition: transform .3s;
+}
+
+.socials-icons img:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .socials-section h2 {
+    margin-bottom: 10px;
+    font-size: 26px;
+    font-weight: 400;
+  }
+
+  .socials-icons {
+    gap: 0;
+  }
+
+  .socials-icons img {
+    scale: .5;
+  }
+}
+
+/*# sourceMappingURL=src_components_081u1pj._.css.map*/

@@ -1,22 +1,4 @@
 /* src/index.css */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: black;
-  color: white;
-}
-
-h1 span {
-  color: #3b82f6; /* Tailwind blue for effect */
-}
-
-a {
-  text-decoration: none;
-  color: white;
-}
-a:hover {
-  text-decoration: underline;
-}
 
 /* Import the font from src/assets/fonts */
 @font-face {
@@ -27,9 +9,17 @@ a:hover {
 }
 
 body {
-  font-family: 'SometypeMono', monospace;
   margin: 0;
   padding: 0;
+  font-family: 'SometypeMono', monospace;
   background-color: black;
   color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  text-decoration: underline;
 }
